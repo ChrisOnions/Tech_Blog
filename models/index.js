@@ -1,5 +1,4 @@
 const User = require('./User');
-// const Project = require('./Project');
 
 // User.hasMany(Project, {
 //   foreignKey: 'user_id',
@@ -9,5 +8,17 @@ const User = require('./User');
 // Project.belongsTo(User, {
 //   foreignKey: 'user_id'
 // });
+
+// a user has many posts
+// posts belong to user
+// cascade to delete comments
+
+// posts have many comments
+// comments belong to posts
+// 
+
+// a user has many comments
+// comments belong to user 
+
 
 module.exports = { User, Project };
