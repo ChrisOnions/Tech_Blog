@@ -16,7 +16,8 @@ Comments.init(
       allowNull: false,
       unique: true,
     },
-    posts_id: {
+    //Maybe add user id to referance who posted
+    post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

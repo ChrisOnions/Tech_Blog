@@ -1,0 +1,68 @@
+* {
+  /* border: 1px black solid; */
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+.Header-block {
+  background-color: rgb(63, 85, 79);
+  min-height: 150px;
+}
+.Header-block a {
+  text-decoration: none;
+  margin-right: 50px;
+  margin-left: 5px;
+  color: black;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+.login,
+.logout {
+  float: right;
+}
+.logo-design {
+  text-align: center;
+  max-width: 20%;
+  font-size: 140%;
+  margin: 10px;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px rgb(158, 158, 158),
+    0 0 42px rgb(226, 26, 53), 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+.post-block {
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  padding: 0.4em;
+  border-radius: 10px;
+  box-shadow: 0 0 0.2rem black, 0 0 0.2rem black, 0 0 2rem #0fa, 0 0 0.8rem #0fa,
+    0 0 2.8rem #0fa, inset 0 0 1.3rem #0fa;
+}
+.Content {
+  padding: 40px 60px;
+  height: 100%;
+  background-color: rgb(2, 102, 69);
+}
+.Content-block {
+  background-color: rgb(63, 85, 79);
+  font-size: 30px;
+  min-height: 20px;
+}
+.title-post {
+  padding-left: 10px;
+  color: white;
+}
+.posts {
+  padding: 10px;
+  background-color: #fff;
+  color: black;
+  font-size: 15px;
+}
+.posts p {
+  font-size: 18px;
+  color: black;
+  padding: 0 50px;
+  margin-bottom: 15px;
+}
