@@ -21,4 +21,4 @@ const User = require('./User');
 // comments belong to user 
 
 
-module.exports = { User, Project };
+module.exports = { User };
