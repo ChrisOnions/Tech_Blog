@@ -19,52 +19,41 @@ router.get('/', async (req, res) => {
     const planePosts = Getposts.map((post) =>
       post.get({ plain: true })
     )
-    // console.log(planePosts);
-
     res.render('home',
       {
         planePosts,
         logged_in: req.session.logged_in,
       })
-
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
-
-  res.render('dashboard', {
-    logged_in: req.session.logged_in,
-  })
-
+  if (req.session.logged_in) {
+    res.render('dashboard', {
+      logged_in: req.session.logged_in,
+    })
+  } else {
+    res.redirect('login')
+  }
 })
-
-
 router.get('/login', async (req, res) => {
 
-  if (req.session.logged_in) {
+  if (!req.session.logged_in) {
     res.render('login')
     return
-  }
-  // res.redirect('home')
+  } else { res.redirect('home') }
 })
 
 router.get('/posts', withAuth, async (req, res) => {
 
-  res.render('post', {
-    logged_in: req.session.logged_in,
-  })
-
+  if (req.session.logged_in) {
+    res.render('post', {
+      logged_in: req.session.logged_in,
+    })
+  } else { res.redirect('login') }
 })
-
-// router.get('/logout', async (req, res) => {
-
-//   if (req.session.logged_in) {
-//     res.render('login')
-//     return
-//   }
-// })
 
 router.get('/signup', async (req, res) => {
 
@@ -80,6 +69,16 @@ router.get('/profile', async (req, res) => {
       logged_in: req.session.logged_in,
     })
     return
+  }
+})
+
+router.get('/logout', async (req, res) => {
+  if (req.session.logged_in) {
+    res.render('logout', {
+      logged_in: req.session.logged_in,
+    })
+  } else {
+    res.render('/')
   }
 })
 
