@@ -5,6 +5,7 @@ const { findAll } = require('../models/posts');
 const Post = require('../models/posts');
 const withAuth = require('../utils/auth');
 
+// Home route - gets DB data to post to home - displays logged in on home 
 router.get('/', async (req, res) => {
   try {
     const Getposts = await Post.findAll({
@@ -20,19 +21,22 @@ router.get('/', async (req, res) => {
     )
     // console.log(planePosts);
 
-    res.render('home', {
-      planePosts,
-      logged_in: req.session.logged_in,
-    })
+    res.render('home',
+      {
+        planePosts,
+        logged_in: req.session.logged_in,
+      })
 
   } catch (err) {
     res.status(500).json(err);
   }
-}); module.exports = router;
+});
 
 router.get('/dashboard', withAuth, async (req, res) => {
 
-  res.render('dashboard')
+  res.render('dashboard', {
+    logged_in: req.session.logged_in,
+  })
 
 })
 
@@ -43,12 +47,14 @@ router.get('/login', async (req, res) => {
     res.render('login')
     return
   }
-  res.redirect('login')
+  // res.redirect('home')
 })
 
 router.get('/posts', withAuth, async (req, res) => {
 
-  res.render('post')
+  res.render('post', {
+    logged_in: req.session.logged_in,
+  })
 
 })
 
@@ -62,7 +68,7 @@ router.get('/posts', withAuth, async (req, res) => {
 
 router.get('/signup', async (req, res) => {
 
-  if (req.session.logged_in) {
+  if (!req.session.logged_in) {
     res.render('signup')
     return
   }
@@ -70,7 +76,9 @@ router.get('/signup', async (req, res) => {
 router.get('/profile', async (req, res) => {
 
   if (req.session.logged_in) {
-    res.render('user_data')
+    res.render('profile', {
+      logged_in: req.session.logged_in,
+    })
     return
   }
 })

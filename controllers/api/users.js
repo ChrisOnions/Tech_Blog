@@ -14,16 +14,18 @@ router.post('/', async (req, res) => {
         email: req.body.email,
         password: req.body.password
       })
+    // res.status(200).json(userToDb);
 
-    const userData = await User.create(req.body)
-
+    // const userData = await User.create(req.body)
+    // console.log(req.body);
     req.session.save(() => {
       req.session.user_id = userData.id
       req.session.logged_in = true
-      res.status(200).json(userData)
+      res.status(200).json(userToDb)
     })
   } catch (err) {
     res.status(400).json(err)
+    console.log(req.body);
   }
 })
 
