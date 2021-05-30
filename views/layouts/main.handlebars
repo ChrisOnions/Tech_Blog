@@ -15,7 +15,7 @@
           <a href="/dashboard">Dashboard</a>
           <a href="/posts">Post</a>
           {{#if logged_in}}
-            <a class="logout" href="/login">Logout</a>
+            <a class="logout" href="/logout">Logout</a>
             <a class="login" href="/user_data">Profile</a>
           {{else}}
             <a class="login" href="/login">login</a>
@@ -28,6 +28,7 @@
     </header>
 
     {{{body}}}
-
+    <div class="block"></div>
+    <footer class="footer">TechBlog 2021</footer>
   </body>
 </html>

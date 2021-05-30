@@ -1,50 +1,78 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
+const Comments = require('../models/comments');
+const { findAll } = require('../models/posts');
+const Post = require('../models/posts');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const Getposts = await Post.findAll({
+      include: [
+        {
+          model: Comments,
+          attributes: ['content', 'post_id'],
+        },
+      ],
+    })
+    const planePosts = Getposts.map((post) =>
+      post.get({ plain: true })
+    )
+    // console.log(planePosts);
 
-    // Pass serialized data and session flag into template
-    res.render('home');
+    res.render('home', {
+      planePosts,
+      logged_in: req.session.logged_in,
+    })
+
   } catch (err) {
     res.status(500).json(err);
   }
 }); module.exports = router;
 
-router.get('/profile', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
 
-  if (req.session.logged_in) {
-    res.redirect('/profile')
-    return
-  }
-  res.render('home')
+  res.render('dashboard')
+
 })
 
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
+
   if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
+    res.render('login')
+    return
   }
+  res.redirect('login')
+})
 
-  res.render('login');
-});
+router.get('/posts', withAuth, async (req, res) => {
 
-router.get('/dashboard', (req, res) => {
+  res.render('post')
+
+})
+
+// router.get('/logout', async (req, res) => {
+
+//   if (req.session.logged_in) {
+//     res.render('login')
+//     return
+//   }
+// })
+
+router.get('/signup', async (req, res) => {
+
   if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
+    res.render('signup')
+    return
   }
+})
+router.get('/profile', async (req, res) => {
 
-  res.render('dashboard');
-});
-
-router.get('/posts', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
+    res.render('user_data')
+    return
   }
+})
 
-  res.render('post');
-});
+module.exports = router;

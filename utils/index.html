@@ -12,7 +12,64 @@
     <!--  -->
     <section class="Content">
       <div class="post-block">
-        <p>username</p> 
+
     <!--  -->
+
+        <h2>Signup</h2>
+    
+        <form class="form signup-form">
+          <div class="form-group">
+            <label for="name-signup">name:</label>
+            <input class="form-input" type="text" id="name-signup" />
+          </div>
+          <div class="form-group">
+            <label for="email-signup">email:</label>
+            <input class="form-input" type="text" id="email-signup" />
+          </div>
+          <div class="form-group">
+            <label for="password-signup">password:</label>
+            <input class="form-input" type="password" id="password-signup" />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    
+    <script src="../public/js/signup.js"></script>
+    <!--  -->
+    {{!  }}
+{{#each planePosts as |planePosts| }}
+
+  <a href='/{{planepost.id}}' class="Content">
+    <div class="post-block">
+      <div class="Content-block">
+        <p class="title-post">
+          {{planePosts.title}}
+        </p>
+        <div class="posts">
+          <p>
+            {{planePosts.content}}
+        </div>
+      </div>
+
+    </div>
+  </a>
+  {{/each}}
+
   </body>
 </html>
+<!-- 
+  - home route for signup
+  - user routes to login signup
+  - finish off html for both
+  - api routes for 
+    -comments
+    - posts
+    - users
+  - JavaScript for sign up and login
+  - seed data for tech_blog_db even if its just one each
+  - 
+-->

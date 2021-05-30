@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  color: rgb(2, 102, 69);
 }
 .Header-block {
   background-color: rgb(63, 85, 79);
@@ -40,9 +41,10 @@ body {
   box-shadow: 0 0 0.2rem black, 0 0 0.2rem black, 0 0 2rem #0fa, 0 0 0.8rem #0fa,
     0 0 2.8rem #0fa, inset 0 0 1.3rem #0fa;
 }
+
 .Content {
   padding: 40px 60px;
-  height: 100%;
+  min-height: 220px;
   background-color: rgb(2, 102, 69);
 }
 .Content-block {
@@ -93,4 +95,14 @@ body {
 }
 .submit:hover {
   color: rgb(63, 85, 79);
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(63, 85, 79);
+  color: white;
+  text-align: center;
 }

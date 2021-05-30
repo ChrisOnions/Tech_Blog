@@ -1,30 +1,16 @@
-<section class="Content">
-  <div class="post-block">
-    <div class="Content-block">
-      <p class="title-post">
-        13 Tech Blog Post Ideas to Build Your 2021 Content
-      </p>
-      <div class="posts">
-        <p>
-          1. How-to Post Let’s start the list by discussing the most common type
-          of blog post – a “how to.” Write a series of blog posts outlining a
-          step-by-step process for how to solve common challenges you see
-          customers facing each day. There is likely a whole new audience of
-          people who have similar questions but are turning to Google for their
-          answer. By finding your blog post through their search queries your IT
-          company grows brand awareness and thought leadership. 2. Case Studies
-          Case studies are a great way to showcase how your brand, products, or
-          services solved a customer’s challenge. It serves as a real-world
-          example of how organizations can serve to benefit from working with
-          your IT company by walking through your process from start to finish.
-          3. Product + Service Updates A large part of having an IT company blog
-          is to educate customers on new services, solutions, and ways to use
-          technology (IE: product updates or features). The article can simply
-          summarize: The name of the product update. What problems the update
-          will solve. The benefit of the update for the end-user. Any necessary
-          steps the end-user must take.
-        </p>
-      </div>
+{{!  }}
+{{#each planePosts as |planePosts| }}
+  <section  class="Content">
+    <div class="post-block">
+      <a href="/{{id}}" class="Content-block">
+        <div   class="title-post">
+          {{planePosts.title}}
+        </div>
+        <div class="posts">
+          <p>
+            {{planePosts.content}}
+        </div>
+      </a>
     </div>
-  </div>
-</section>
+  </section>
+  {{/each}}
