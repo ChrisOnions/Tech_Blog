@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
+
   if (req.session.logged_in) {
     res.render('dashboard', {
       logged_in: req.session.logged_in,

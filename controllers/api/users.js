@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { posts, User } = require('../../models');
+const { Post, User } = require('../../models');
 // create new user via signup
 // delete a user
 // C.R.U.D
