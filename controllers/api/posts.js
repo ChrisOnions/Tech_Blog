@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const Post = require('../../models/posts');
 
 // projects
 // C.R.U.D
@@ -7,12 +7,13 @@ const { Post } = require('../../models');
 //Create
 router.post('/', async (req, res) => {
   try {
-    const post = await Post.create(
+    const posts = await Post.create(
       {
-        title: req.body.name,
+        title: req.body.title,
         content: req.body.content,
+        //user id
       })
-    res.status(200).json(post)
+    res.status(200).json(posts)
 
   } catch (err) {
     res.status(400).json(err)
