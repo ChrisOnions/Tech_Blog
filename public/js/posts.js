@@ -19,9 +19,8 @@ const creatPost = async (event) => {
       console.log(req.session);
     }
   } else {
-    console.log(postContent);
-    console.log(postTitle);
-
+    console.log("Bad request");
+    console.log(title, content);
   }
 }
 

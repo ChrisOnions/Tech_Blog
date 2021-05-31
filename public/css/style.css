@@ -44,7 +44,7 @@ body {
 
 .Content {
   padding: 40px 60px;
-  min-height: 220px;
+  /* min-height: 220px; */
   background-color: rgb(2, 102, 69);
 }
 .Content-block {
@@ -105,4 +105,8 @@ body {
   background-color: rgb(63, 85, 79);
   color: white;
   text-align: center;
+}
+.fill-View {
+  background-color: rgb(2, 102, 69);
+  height: 100vh;
 }
