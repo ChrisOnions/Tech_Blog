@@ -14,5 +14,4 @@ const logoutButton = async (event) => {
     alert(response.statusText)
   }
 }
-document.querySelector('.submit')
-  .addEventListener('click', logoutButton)
+document.querySelector('.submit').addEventListener('click', logoutButton)

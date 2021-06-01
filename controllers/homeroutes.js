@@ -30,8 +30,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
-
+  // user .findone whereid: rec.sessions.user_id
   if (req.session.logged_in) {
+
     res.render('dashboard', {
       logged_in: req.session.logged_in,
     })
@@ -39,12 +40,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.redirect('login')
   }
 })
+
 router.get('/login', async (req, res) => {
 
   if (!req.session.logged_in) {
     res.render('login')
     return
-  } else { res.redirect('home') }
+  } else { res.redirect('/home') }
 })
 
 router.get('/posts', withAuth, async (req, res) => {
@@ -53,7 +55,7 @@ router.get('/posts', withAuth, async (req, res) => {
     res.render('post', {
       logged_in: req.session.logged_in,
     })
-  } else { res.redirect('login') }
+  } else { res.redirect('/login') }
 })
 
 router.get('/signup', async (req, res) => {
