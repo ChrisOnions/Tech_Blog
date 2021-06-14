@@ -22,7 +22,7 @@ const addComment_func = async (post_id, comment_id) => {
 }
 const delete_btn = async (id) => {
   console.log(id);
-  const response = await fetch('/api/comments/' + id, {
+  const response = await fetch('/api/posts/' + id, {
     method: 'DELETE',
     body: JSON.stringify({ id }),
     headers: { 'Content-Type': 'application/json' },
