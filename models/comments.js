@@ -16,7 +16,14 @@ Comments.init(
       allowNull: false,
       unique: true,
     },
-    //Maybe add user id to referance who posted
+    comment_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'comment',
+        key: 'id'
+      }
+    },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

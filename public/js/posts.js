@@ -15,12 +15,10 @@ const creatPost = async (event) => {
     });
     if (response.ok) {
       document.location.replace('/dashboard');
-      console.log("Button Clicked");
-      console.log(req.session);
+
     }
   } else {
-    console.log("Bad request");
-    console.log(title, content);
+
   }
 }
 

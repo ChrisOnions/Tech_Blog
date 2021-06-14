@@ -19,21 +19,29 @@ router.get('/', async (req, res) => {
     const planePosts = Getposts.map((post) =>
       post.get({ plain: true })
     )
-    res.render('home',
-      {
-        planePosts,
-        logged_in: req.session.logged_in,
-      })
+    res.render('home', {
+      planePosts,
+      logged_in: req.session.logged_in,
+    })
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
-  // user .findone whereid: rec.sessions.user_id
+  user = await User.findByPk(req.session.user_id, {
+    attributes: { exclude: ["password"] },
+    include: [{ model: Post }, { model: Comments }]
+  })
+  const userid = user.get({ plain: true })
+
+
+  console.log(userid)
+
   if (req.session.logged_in) {
 
     res.render('dashboard', {
+      userid,
       logged_in: req.session.logged_in,
     })
   } else {
@@ -65,7 +73,7 @@ router.get('/signup', async (req, res) => {
     return
   }
 })
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
 
   if (req.session.logged_in) {
     res.render('profile', {
@@ -75,7 +83,8 @@ router.get('/profile', async (req, res) => {
   }
 })
 
-router.get('/logout', async (req, res) => {
+
+router.get('/logout', withAuth, async (req, res) => {
   if (req.session.logged_in) {
     res.render('logout', {
       logged_in: req.session.logged_in,
@@ -84,5 +93,6 @@ router.get('/logout', async (req, res) => {
     res.render('/')
   }
 })
+
 
 module.exports = router;

@@ -27,7 +27,9 @@ router.post('/', async (req, res) => {
 // const update = async
 // // Update
 
-// const delete2 = async
+// const post('/:id', async (req, res) => {
+
+// })
 // // Delete
 
 

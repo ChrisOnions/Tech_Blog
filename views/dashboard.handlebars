@@ -1,25 +1,31 @@
-<section class="Content">
-  <div class="post-block">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</section>
+{{#userid}}
+  <section class="Content">
+    <div class="post-block">
+      <h2>Welcome, {{name}}!</h2>
+    </div>
+  </section>
 
-{{#if post.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+  {{#if posts}}
+    <div class="col-md-6 project-list">
+      <h3>Current Projects:</h3>
 
-    {{#each posts as |posts|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4><a href="/project/{{user.id}}">{{user.name}}</a></h4>
+      {{#each posts as |posts|}}
+        <div class="row mb-2 post-block">
+          <div class="col-md-8">
+            <h4><a
+                href="/project/{{posts.id}}"
+              >{{posts.title}}{{posts.Content}}</a></h4>
+          </div>
+          <div class="col-md-4">
+            <button
+              class="btn btn-sm btn-danger"
+              data-id="{{posts.id}}"
+              onclick="delete_btn({{this.id}})"
+            >DELETE</button>
+          </div>
         </div>
-        <div class="col-md-4">
-          <button
-            class="btn btn-sm btn-danger"
-            data-id="{{user.id}}"
-          >DELETE</button>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-{{/if}}
+      {{/each}}
+    </div>
+  {{/if}}
+{{/userid}}
+<script src="/js/comments.js"></script>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/reset.css" />
   </head>
   <body>
+
     <header>
       <h1 class="Header-block">
         <div>
@@ -15,7 +16,7 @@
           <a href="/dashboard">Dashboard</a>
           <a href="/posts">Post</a>
           {{#if logged_in}}
-            <a class="logout" href="/logout">Logout</a>
+            <a class="logout" href="logout">Logout</a>
             <a class="login" href="/profile">Profile</a>
           {{else}}
             <a class="login" href="/login">login</a>
@@ -30,5 +31,6 @@
     {{{body}}}
     <div class="block"></div>
     <footer class="footer">TechBlog 2021</footer>
+
   </body>
 </html>

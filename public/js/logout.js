@@ -1,9 +1,7 @@
-
-
 const logoutButton = async (event) => {
   event.preventDefault();
   const response = await fetch('/api/users/logout', {
-    method: 'POST',
+    method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   })
 

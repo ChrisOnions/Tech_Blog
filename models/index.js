@@ -18,6 +18,12 @@ Comment.belongsTo(Post, {
   foreignKey: 'post_id'
 })
 
+User.hasMany(Comment, {
+  foreignKey: 'comment_id'
+})
+Comment.belongsTo(User, {
+  foreignKey: 'comment_id'
+})
 
 // a user has many posts
 // posts belong to user

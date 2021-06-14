@@ -1,19 +1,39 @@
 {{!  }}
-<div class="fill-View">
-{{#each planePosts as |planePosts| }}
 
-  <section  class="Content">
-    <div class="post-block">
-      <a href="/{{id}}" class="Content-block">
-        <div   class="title-post">
-          {{planePosts.title}}
-        </div>
-        <div class="posts">
-          <p>
+<div class="fill-View">
+  {{#each planePosts as |planePosts|}}
+
+    <section class="Content">
+      <div class="post-block">
+        <a href="/{{id}}" class="Content-block">
+          <div class="title-post">
+            {{planePosts.title}}
+          </div>
+          <div class="posts post-block">
+
             {{planePosts.content}}
+          </div>
+        </a>
+        <p>Comments:</p>
+        {{#each comments}}
+          <div class="comments-box">
+
+            <p>
+              {{content}}</p>
+          </div>
+        {{/each}}
+        <div class="post-block">
+          <label>Comment :</label>
+          <input class="input-box comment_box" type="text" rows="10" col="30" />
+          <button
+            class="btn btn-sm btn-danger"
+            onclick="addComment_func({{this.id}},{{this.user_id}})"
+          >Submit</button>
         </div>
-      </a>
-    </div>
-  </section>
+
+      </div>
+
+    </section>
   {{/each}}
 </div>
+<script src="/js/comments.js"></script>
