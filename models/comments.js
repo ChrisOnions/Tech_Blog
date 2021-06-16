@@ -20,7 +20,7 @@ Comments.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'comment',
+        model: 'user',
         key: 'id'
       }
     },
