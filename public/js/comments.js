@@ -3,7 +3,7 @@ const submitComment_btn = document.querySelector('.Submit-comment-btn');
 
 const addComment_func = async (post_id, comment_id) => {
   const content = document.querySelector('.comment_box').value.trim()
-  console.log(post_id, comment_id);
+  console.log(contents);
   if (content) {
     const response = await fetch('/api/comments/', {
       method: 'POST',
