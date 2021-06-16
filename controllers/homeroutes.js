@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
         },
       ],
     })
+
     const planePosts = Getposts.map((post) =>
       post.get({ plain: true })
     )
