@@ -36,11 +36,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   })
   const userid = user.get({ plain: true })
 
-
-  console.log(userid)
-
   if (req.session.logged_in) {
-
     res.render('dashboard', {
       userid,
       logged_in: req.session.logged_in,

@@ -7,7 +7,6 @@ const Post = require('../../models/posts');
 //Create
 router.post('/', async (req, res) => {
   try {
-    console.log(req.session.user_id);
     const posts = await Post.create(
       {
         title: req.body.title,
@@ -18,7 +17,6 @@ router.post('/', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err)
-    console.log(req.body);
   }
 })
 

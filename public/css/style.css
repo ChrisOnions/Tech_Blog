@@ -29,6 +29,9 @@ html,
     0 0 42px rgb(226, 26, 53), 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa,
     0 0 151px #0fa;
 }
+.project-list {
+  margin-left: 10%;
+}
 .post-block {
   border: 0.2rem solid #fff;
   border-radius: 2rem;
@@ -36,6 +39,7 @@ html,
   border-radius: 10px;
   box-shadow: 0 0 0.2rem black, 0 0 0.2rem black, 0 0 2rem #0fa, 0 0 0.8rem #0fa,
     0 0 2.8rem #0fa, inset 0 0 1.3rem #0fa;
+  margin-top: 15px;
 }
 
 .Content {
@@ -51,12 +55,14 @@ html,
 .title-post {
   padding-left: 10px;
   color: white;
+  margin: 15px auto;
 }
 .posts {
   padding: 10px;
   background-color: #fff;
   color: black;
   font-size: 15px;
+  margin-left: 15px;
 }
 .posts p {
   font-size: 18px;
@@ -79,12 +85,24 @@ html,
   box-shadow: 5px 10px 8px black;
   margin-bottom: 20px;
 }
+.comment_box {
+  min-width: 90%;
+  padding: 0;
+  margin-left: 50px;
+}
 #comment-btn {
   float: right;
   margin: 5px;
 }
+.btn {
+  float: right;
+}
 .comments-box {
+  margin: 2px auto;
   margin-left: 20px;
+  border-radius: 5px;
+  background-color: #888;
+  border: #fefefe 1px solid;
 }
 .modal-header {
   background-color: #fefefe;
@@ -130,4 +148,14 @@ html,
 .fill-View {
   background-color: rgb(2, 102, 69);
   height: 100vh;
+}
+.comment-display {
+  font-weight: 600;
+  margin: 0;
+  padding: 3px;
+
+  padding-left: 5px;
+}
+label {
+  margin: 10px;
 }

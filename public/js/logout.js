@@ -8,7 +8,6 @@ const logoutButton = async (event) => {
   if (response.ok) {
     document.location.replace('/')
   } else {
-    console.log(response.text);
     alert(response.statusText)
   }
 }

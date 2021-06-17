@@ -6,29 +6,30 @@
     <section class="Content">
       <div class="post-block">
         <a href="/{{id}}" class="Content-block">
-          <p>{{planePosts.created_at}}</p>
+
           <div class="title-post">
+
             {{planePosts.title}}
+            <p class="login">{{planePosts.createdAt}}</p>
           </div>
           <div class="posts post-block">
-
             {{planePosts.content}}
           </div>
         </a>
-        <p>Comments:</p>
+        <p class="comment-display">Comments:</p>
         {{#each comments}}
           <div class="comments-box">
 
-            <p>
-              {{content}}</p>
+            <p class="comment-display">{{content}}</p>
+            {{createdAt}}
           </div>
         {{/each}}
         <div class="post-block">
-          <label>Comment :</label>
+          <label>Add Comment here :</label>
           <input class="input-box comment_box" type="text" rows="10" col="30" />
           <button
             class="btn btn-sm btn-danger"
-            onclick="addComment_func({{this.id}},{{this.user_id}})"
+            onclick="addComment_func({{this.id}},{{this.user_id}}, event)"
           >Submit</button>
         </div>
 

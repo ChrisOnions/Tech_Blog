@@ -5,7 +5,7 @@ const Comments = require('../../models/comments');
 // Create
 router.post('/', async (req, res) => {
   try {
-    const { content, post_id } = req.body
+    const { content, post_id, comment_id } = req.body
     const comment = await Comments.create(
       {
         content,
